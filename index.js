@@ -6,7 +6,6 @@ const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, {
 
 
 const sendChat =-767862069;
-console.log(sendChat);
 bot.onText(/\/start/, (msg, match) => {
     const chatId = msg.chat.id;
     bot.sendMessage(sendChat, `${JSON.stringify(msg)}`);
@@ -23,7 +22,9 @@ bot.on('message', msg => {
                 id: msg.chat.id,
                 name: msg.chat.first_name + ' ' + msg.chat.last_name,
             }
-        )}`);
-        bot.sendMessage(sendChat, msg.text);
+        )}`).then((mes)=>{
+            bot.sendMessage(sendChat, msg.text);
+        })
+        
     }
 });
