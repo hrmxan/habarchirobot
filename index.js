@@ -5,7 +5,7 @@ const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, {
 });
 
 
-const sendChat = -767862069;
+const sendChat =process.env.group_id;
 bot.onText(/\/start/, (msg, match) => {
     const chatId = msg.chat.id;
     bot.sendMessage(sendChat, `${JSON.stringify(msg)}`);
